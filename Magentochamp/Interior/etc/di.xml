@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magentochamp\Interior\Api\Data\GridInterface" type="Magentochamp\Interior\Model\Interior" />
+ 
+    <virtualType name="Magentochamp\Interior\Model\ResourceModel\Interior\Interior\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magentochamp_interior</argument>
+            <argument name="resourceModel" xsi:type="string">Magentochamp\Interior\Model\ResourceModel\Interior</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="interior_record_grid_list_data_source" xsi:type="string">Magentochamp\Interior\Model\ResourceModel\Interior\Interior\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

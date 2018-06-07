@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magentochamp_Interior Menu
+ *
+ * @package     Magentochamp_Interior
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magentochamp_Interior::manager" title="Interior" module="Magentochamp_Interior" sortOrder="10" resource="Magentochamp_Interior::manager"/>
+        <add id="Magentochamp_Interior::add_row" title="Interior" module="Magentochamp_Interior" sortOrder="20" parent="Magentochamp_Interior::manager" action="interior/grid" resource="Magentochamp_Interior::add_row"/>
+    </menu>
+</config>
