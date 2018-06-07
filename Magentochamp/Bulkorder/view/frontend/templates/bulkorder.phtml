@@ -1,0 +1,79 @@
+<?php
+$categories = $block->getCategoryCollection();
+//$block->toOptionArrayTest();
+?>
+<form class="form bulkorder"
+      action="<?php echo $block->getFormAction() ?>"
+      id="bulkorder"
+      method="post"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Bulkorder')) ?></span></legend><br />
+        
+        <div class="field name required">
+            <label class="label" for="name"><span><?= $block->escapeHtml(__('First Name')) ?></span></label>
+            <div class="control">
+                <input name="firstname" id="firstname" title="<?= $block->escapeHtmlAttr(__('First Name')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field lastname required">
+            <label class="label" for="lastname"><span><?= $block->escapeHtml(__('Last Name')) ?></span></label>
+            <div class="control">
+                <input name="lastname" id="lastname" title="<?= $block->escapeHtmlAttr(__('Last Name')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <div class="field mobno required">
+            <label class="label" for="mobno"><span><?= $block->escapeHtml(__('Phone Number')) ?></span></label>
+            <div class="control">
+                <input name="mobno" id="mobno" title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>" class="input-text" type="text" data-validate="{required:true}" />
+            </div>
+        </div>
+        <div class="field pincode required">
+            <label class="label" for="pincode"><span><?= $block->escapeHtml(__('Pin Code')) ?></span></label>
+            <div class="control">
+                <input name="pincode" id="pincode" title="<?= $block->escapeHtmlAttr(__('Pin Code')) ?>" class="input-text" type="text" data-validate="{required:true}" />
+            </div>
+        </div>
+        <div class="field city required">
+            <label for="city"
+                   class="label"><span><?= $block->escapeHtml(__('City')) ?></span></label>
+            <select name="city" id="city" class="admin__control-select required-entry">
+                <option value="">-City-</option>
+                <?php foreach($block->toOptionArray() as $key=>$value){ ?>
+                    <option value="<?php echo $key ?>"><?php echo $value ?></option>
+                <?php }?>
+            </select>
+        </div>
+        <div class="field category required">
+            <label for="category"
+                   class="label"><span><?= $block->escapeHtml(__('Category')) ?></span></label>
+            <select name="category" id="category" class="admin__control-select required-entry">
+                <option value="">-Category-</option>
+                <?php foreach ($categories as $category) { ?>
+                    <option value="<?php echo $category->getId() ?>"><?php echo $category->getName(); ?></option>
+                <?php }?>
+            </select>
+        </div>
+        <div class="field approxqty required">
+            <label class="label" for="approxqty"><span><?= $block->escapeHtml(__('Approx Qty')) ?></span></label>
+            <div class="control">
+                <input name="approx_qty" id="approxqty" title="<?= $block->escapeHtmlAttr(__('Approx Qty')) ?>" class="input-text" type="text" data-validate="{required:true}" />
+            </div>
+        </div>
+    <input name="status" type="hidden" value="1">
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>

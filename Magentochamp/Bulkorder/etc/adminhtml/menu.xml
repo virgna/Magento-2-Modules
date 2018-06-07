@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magentochamp_Bulkorder Menu
+ *
+ * @package     Magentochamp_Bulkorder
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magentochamp_Bulkorder::manager" title="Bulkorder" module="Magentochamp_Bulkorder" sortOrder="10" resource="Magentochamp_Bulkorder::manager"/>
+        <add id="Magentochamp_Bulkorder::add_row" title="Bulkorder" module="Magentochamp_Bulkorder" sortOrder="20" parent="Magentochamp_Bulkorder::manager" action="bulkorder/grid" resource="Magentochamp_Bulkorder::add_row"/>
+    </menu>
+</config>

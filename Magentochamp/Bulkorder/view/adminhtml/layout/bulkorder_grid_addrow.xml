@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magentochamp_Bulkorder add row layout
+ * @category    Magentochamp
+ * @package     Magentochamp_Bulkorder
+ * @author      Magentochamp Software Private Limited
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+           <block class="Magentochamp\Bulkorder\Block\Adminhtml\Grid\AddRow" name="add_row" />
+        </referenceContainer>
+    </body>
+</page>
