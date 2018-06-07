@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magentochamp_Sellwithus Menu
+ *
+ * @package     Magentochamp_Sellwithus
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magentochamp_Sellwithus::manager" title="Sellwithus" module="Magentochamp_Sellwithus" sortOrder="10" resource="Magentochamp_Sellwithus::manager"/>
+        <add id="Magentochamp_Sellwithus::add_row" title="Sellwithus" module="Magentochamp_Sellwithus" sortOrder="20" parent="Magentochamp_Sellwithus::manager" action="sellwithus/grid" resource="Magentochamp_Sellwithus::add_row"/>
+    </menu>
+</config>
