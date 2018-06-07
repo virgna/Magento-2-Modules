@@ -103,6 +103,19 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $fieldset->addField(
+            'firmname',
+            'text',
+            [
+                'name' => 'firmname',
+                'label' => __('Firm Name'),
+                'id' => 'firmname',
+                'title' => __('Firm Name'),
+                'class' => 'required-entry',
+                'required' => true,
+            ]
+        );
+
+        $fieldset->addField(
             'email',
             'text',
             [
@@ -142,28 +155,28 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $fieldset->addField(
-            'approx_qty',
+            'experience',
             'text',
             [
-                'name' => 'approx_qty',
-                'label' => __('Approx Qty'),
-                'id' => 'approx_qty',
-                'title' => __('Approx Qty'),
+                'name' => 'experience',
+                'label' => __('Experience'),
+                'id' => 'Experience',
+                'title' => __('Experience'),
                 'class' => 'required-entry',
                 'required' => true,
             ]
         );
 
         $fieldset->addField(
-            'category',
+            'speciality',
             'select',
             [
-                'name' => 'category',
-                'label' => __('Category'),
-                'id' => 'category',
-                'title' => __('Category'),
-                'values' => $this->_helper->getCategoryCollectionArr(),
-                'class' => 'category',
+                'name' => 'speciality',
+                'label' => __('Speciality'),
+                'id' => 'speciality',
+                'title' => __('Speciality'),
+                'values' => $this->_helper->getSpecialityCollectionData(),
+                'class' => 'speciality',
                 'required' => true,
             ]
         );

@@ -17,9 +17,9 @@ class Interior extends \Magento\Framework\View\Element\Template
         //parent::__construct($context);
     }
 
-    public function getCategoryCollection()
+    public function getSpecialityCollection()
     {
-        return $this->_helper->getCategoryCollectionData();
+        return $this->_helper->getSpecialityCollectionData();
     }
 
     public function getFormAction()

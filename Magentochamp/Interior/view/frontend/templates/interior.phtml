@@ -1,5 +1,5 @@
 <?php
-$categories = $block->getCategoryCollection();
+$specialities = $block->getSpecialityCollection();
 //$block->toOptionArrayTest();
 ?>
 <form class="form interior"
@@ -9,8 +9,8 @@ $categories = $block->getCategoryCollection();
       data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
       data-mage-init='{"validation":{}}'>
     <fieldset class="fieldset">
-        <legend class="legend"><span><?= $block->escapeHtml(__('Interior')) ?></span></legend><br />
-        
+        <legend class="legend"><span><?= $block->escapeHtml(__('GET IN TOUCH WITH US')) ?></span></legend><br />
+        <div class="field note no-label"><?= $block->escapeHtml(__('Share Your Details & We’ll Connect Promptly.')) ?></div>
         <div class="field name required">
             <label class="label" for="name"><span><?= $block->escapeHtml(__('First Name')) ?></span></label>
             <div class="control">
@@ -21,6 +21,12 @@ $categories = $block->getCategoryCollection();
             <label class="label" for="lastname"><span><?= $block->escapeHtml(__('Last Name')) ?></span></label>
             <div class="control">
                 <input name="lastname" id="lastname" title="<?= $block->escapeHtmlAttr(__('Last Name')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field firmname required">
+            <label class="label" for="firmname"><span><?= $block->escapeHtml(__('Firm Name')) ?></span></label>
+            <div class="control">
+                <input name="firmname" id="firmname" title="<?= $block->escapeHtmlAttr(__('Firm Name')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
             </div>
         </div>
         <div class="field email required">
@@ -51,20 +57,20 @@ $categories = $block->getCategoryCollection();
                 <?php }?>
             </select>
         </div>
-        <div class="field category required">
-            <label for="category"
-                   class="label"><span><?= $block->escapeHtml(__('Category')) ?></span></label>
-            <select name="category" id="category" class="admin__control-select required-entry">
-                <option value="">-Category-</option>
-                <?php foreach ($categories as $category) { ?>
-                    <option value="<?php echo $category->getId() ?>"><?php echo $category->getName(); ?></option>
+        <div class="field speciality required">
+            <label for="speciality"
+                   class="label"><span><?= $block->escapeHtml(__('Speciality')) ?></span></label>
+            <select name="speciality" id="speciality" class="admin__control-select required-entry">
+                <option value="">-Speciality-</option>
+                <?php foreach ($specialities as $key=>$value) { ?>
+                    <option value="<?php echo $key ?>"><?php echo $value; ?></option>
                 <?php }?>
             </select>
         </div>
-        <div class="field approxqty required">
-            <label class="label" for="approxqty"><span><?= $block->escapeHtml(__('Approx Qty')) ?></span></label>
+        <div class="field experience required">
+            <label class="label" for="experience"><span><?= $block->escapeHtml(__('Experience')) ?></span></label>
             <div class="control">
-                <input name="approx_qty" id="approxqty" title="<?= $block->escapeHtmlAttr(__('Approx Qty')) ?>" class="input-text" type="text" data-validate="{required:true}" />
+                <input name="experience" id="experience" title="<?= $block->escapeHtmlAttr(__('Experience')) ?>" class="input-text" type="text" data-validate="{required:true}" />
             </div>
         </div>
     <input name="status" type="hidden" value="1">

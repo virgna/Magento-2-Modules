@@ -36,7 +36,7 @@ class Post extends \Magento\Framework\App\Action\Action
             $model->load($data['id']);
         }
         
-        $newData = array('firstname'=>$data['firstname'],'lastname'=>$data['lastname'],'email'=>$data['email'],'mobno'=>$data['mobno'],'pincode'=>$data['pincode'],'city'=>$data['city'],'category'=>$data['category'],'approx_qty'=>$data['approx_qty'],'created_at'=>$this->datetime->gmtDate(),'updated_at'=>$this->datetime->gmtDate(),'status'=>1);
+        $newData = array('firstname'=>$data['firstname'],'lastname'=>$data['lastname'],'firmname'=>$data['firmname'],'email'=>$data['email'],'mobno'=>$data['mobno'],'pincode'=>$data['pincode'],'city'=>$data['city'],'speciality'=>$data['speciality'],'experience'=>$data['experience'],'created_at'=>$this->datetime->gmtDate(),'updated_at'=>$this->datetime->gmtDate(),'status'=>1);
         
         $model->setData($newData);
         try{

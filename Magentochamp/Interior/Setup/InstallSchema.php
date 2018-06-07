@@ -45,6 +45,13 @@ class InstallSchema implements InstallSchemaInterface
                     'Last Name'
                 )
                 ->addColumn(
+                    'firmname',
+                    Table::TYPE_TEXT,
+                    255,
+                    [],
+                    'Firm Nam'
+                )
+                ->addColumn(
                     'email',
                     Table::TYPE_TEXT,
                     255,
@@ -73,19 +80,18 @@ class InstallSchema implements InstallSchemaInterface
                     'City'
                 )
                 ->addColumn(
-                    'category',
+                    'speciality',
                     Table::TYPE_INTEGER,
                     11,
                     [],
-                    'Category'
+                    'Speciality'
                 )
-                
                 ->addColumn(
-                    'approx_qty',
+                    'experience',
                     Table::TYPE_TEXT,
                     255,
                     [],
-                    'Approx Qty'
+                    'Experience'
                 )
                 ->addColumn(
                     'created_at',
