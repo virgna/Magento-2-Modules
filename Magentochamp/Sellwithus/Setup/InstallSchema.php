@@ -74,8 +74,8 @@ class InstallSchema implements InstallSchemaInterface
                 )
                 ->addColumn(
                     'state',
-                    Table::TYPE_INTEGER,
-                    11,
+                    Table::TYPE_TEXT,
+                    255,
                     [],
                     'State'
                 )

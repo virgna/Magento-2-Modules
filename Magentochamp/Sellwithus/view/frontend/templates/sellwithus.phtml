@@ -38,17 +38,14 @@ $categories = $block->getCategoryCollection();
         <div class="field companytype required">
             <label for="companytype"
                    class="label"><span><?= $block->escapeHtml(__('Company type')) ?></span></label>
-            <select name="companytype" id="companytype" class="admin__control-select required-entry">
-                <option value="">-Company type-</option>
                 <?php foreach($block->toOptionCtypeArray() as $key=>$value){ ?>
-                    <option value="<?php echo $key ?>"><?php echo $value ?></option>
+                    <input type="checkbox" name="companytype[]" value="<?php echo $key ?>"><?php echo $value ?>
                 <?php }?>
-            </select>
         </div>
         <div class="field address required">
             <label class="label" for="address"><span><?= $block->escapeHtml(__('Address')) ?></span></label>
             <div class="control">
-                <textarea name="address" id="address" class="" data-validate="{required:true}" />
+                <textarea name="address" id="address" class="" data-validate="{required:true}"></textarea>
             </div>
         </div>
         <div class="field mobno required">

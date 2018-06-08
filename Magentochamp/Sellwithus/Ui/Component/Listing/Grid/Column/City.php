@@ -50,16 +50,16 @@ class City extends Column implements OptionSourceInterface
     public function prepareDataSource(array $dataSource)
     {
         $dataSource = parent::prepareDataSource($dataSource);
-        $options = $this->source->toOptionCityData();
+        //$options = $this->source->toOptionStateData();
 
         if (empty($dataSource['data']['items'])) {
             return $dataSource;
         }
 
         foreach ($dataSource['data']['items'] as &$item) {
-            if (isset($options[$item['city']])) {
+            /*if (isset($options[$item['city']])) {
                 $item['city'] = $options[$item['city']];
-            }
+            }*/
         }
 
         return $dataSource;

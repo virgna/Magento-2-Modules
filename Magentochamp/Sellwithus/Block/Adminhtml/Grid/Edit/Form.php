@@ -103,6 +103,33 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $fieldset->addField(
+            'companytype',
+            'multiselect',
+            [
+                'name' => 'companytype[]',
+                'label' => __('Company Type'),
+                'id' => 'companytype',
+                'title' => __('Company Type'),
+                'values' => $this->_helper->toOptionCtypeArray(),
+                'class' => 'companytype',
+                'required' => true,
+            ]
+        );
+
+        $fieldset->addField(
+            'address',
+            'textarea',
+            [
+                'name' => 'address',
+                'label' => __('Address'),
+                'id' => 'address',
+                'title' => __('Address'),
+                'class' => 'required-entry',
+                'required' => true,
+            ]
+        );
+
+        $fieldset->addField(
             'companyname',
             'text',
             [
@@ -178,19 +205,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'values' => $this->_helper->toOptionStateArray(),
                 'class' => 'state',
                 'required' => true,
-            ]
-        );
-
-        $fieldset->addField(
-            'state',
-            'checkbox',
-            [
-                'name' => 'state',
-                'label' => __('State'),
-                'data-form-part' => $this->_helper->toOptionCtypeArray(),
-                'class' => 'state',
-                'onchange'   => 'this.value = this.checked ? 1 : 0;',
-                'checked' => true //add this line in your each fieldset.
             ]
         );
 
