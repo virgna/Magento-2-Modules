@@ -23,10 +23,32 @@ $categories = $block->getCategoryCollection();
                 <input name="lastname" id="lastname" title="<?= $block->escapeHtmlAttr(__('Last Name')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
             </div>
         </div>
+        <div class="field companyname required">
+            <label class="label" for="companyname"><span><?= $block->escapeHtml(__('Company Name')) ?></span></label>
+            <div class="control">
+                <input name="companyname" id="companyname" title="<?= $block->escapeHtmlAttr(__('Company Name')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
         <div class="field email required">
             <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
             <div class="control">
                 <input name="email" id="email" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <div class="field companytype required">
+            <label for="companytype"
+                   class="label"><span><?= $block->escapeHtml(__('Company type')) ?></span></label>
+            <select name="companytype" id="companytype" class="admin__control-select required-entry">
+                <option value="">-Company type-</option>
+                <?php foreach($block->toOptionArray() as $key=>$value){ ?>
+                    <option value="<?php echo $key ?>"><?php echo $value ?></option>
+                <?php }?>
+            </select>
+        </div>
+        <div class="field address required">
+            <label class="label" for="address"><span><?= $block->escapeHtml(__('Address')) ?></span></label>
+            <div class="control">
+                <textarea name="address" id="address" class="" data-validate="{required:true}" />
             </div>
         </div>
         <div class="field mobno required">
@@ -42,10 +64,16 @@ $categories = $block->getCategoryCollection();
             </div>
         </div>
         <div class="field city required">
-            <label for="city"
-                   class="label"><span><?= $block->escapeHtml(__('City')) ?></span></label>
-            <select name="city" id="city" class="admin__control-select required-entry">
-                <option value="">-City-</option>
+            <label class="label" for="city"><span><?= $block->escapeHtml(__('City')) ?></span></label>
+            <div class="control">
+                <input name="city" id="city" title="<?= $block->escapeHtmlAttr(__('City')) ?>" class="input-text" type="text" data-validate="{required:true}" />
+            </div>
+        </div>
+        <div class="field state required">
+            <label for="state"
+                   class="label"><span><?= $block->escapeHtml(__('State')) ?></span></label>
+            <select name="state" id="state" class="admin__control-select required-entry">
+                <option value="">-State-</option>
                 <?php foreach($block->toOptionArray() as $key=>$value){ ?>
                     <option value="<?php echo $key ?>"><?php echo $value ?></option>
                 <?php }?>
@@ -60,12 +88,6 @@ $categories = $block->getCategoryCollection();
                     <option value="<?php echo $category->getId() ?>"><?php echo $category->getName(); ?></option>
                 <?php }?>
             </select>
-        </div>
-        <div class="field approxqty required">
-            <label class="label" for="approxqty"><span><?= $block->escapeHtml(__('Approx Qty')) ?></span></label>
-            <div class="control">
-                <input name="approx_qty" id="approxqty" title="<?= $block->escapeHtmlAttr(__('Approx Qty')) ?>" class="input-text" type="text" data-validate="{required:true}" />
-            </div>
         </div>
     <input name="status" type="hidden" value="1">
     </fieldset>

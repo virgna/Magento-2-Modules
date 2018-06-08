@@ -56,7 +56,7 @@ class InstallSchema implements InstallSchemaInterface
                     Table::TYPE_INTEGER,
                     11,
                     [],
-                    'Company Name'
+                    'Company Type'
                 )
                 ->addColumn(
                     'address',
