@@ -40,7 +40,7 @@ $categories = $block->getCategoryCollection();
                    class="label"><span><?= $block->escapeHtml(__('Company type')) ?></span></label>
             <select name="companytype" id="companytype" class="admin__control-select required-entry">
                 <option value="">-Company type-</option>
-                <?php foreach($block->toOptionArray() as $key=>$value){ ?>
+                <?php foreach($block->toOptionCtypeArray() as $key=>$value){ ?>
                     <option value="<?php echo $key ?>"><?php echo $value ?></option>
                 <?php }?>
             </select>
@@ -74,7 +74,7 @@ $categories = $block->getCategoryCollection();
                    class="label"><span><?= $block->escapeHtml(__('State')) ?></span></label>
             <select name="state" id="state" class="admin__control-select required-entry">
                 <option value="">-State-</option>
-                <?php foreach($block->toOptionArray() as $key=>$value){ ?>
+                <?php foreach($block->toOptionStateArray() as $key=>$value){ ?>
                     <option value="<?php echo $key ?>"><?php echo $value ?></option>
                 <?php }?>
             </select>

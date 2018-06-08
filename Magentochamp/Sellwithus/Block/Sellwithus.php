@@ -27,8 +27,13 @@ class Sellwithus extends \Magento\Framework\View\Element\Template
         return $this->getUrl('sellwithus/index/post');
     }
     
-    public function toOptionArray()
+    public function toOptionCtypeArray()
     {
-        return $this->_helper->toOptionCityData();
+        return $this->_helper->toOptionCtypeData();
+    }
+
+    public function toOptionStateArray()
+    {
+        return $this->_helper->toOptionStateData();
     }
 }

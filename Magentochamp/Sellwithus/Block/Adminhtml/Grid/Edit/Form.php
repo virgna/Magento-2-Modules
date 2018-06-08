@@ -103,6 +103,19 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $fieldset->addField(
+            'companyname',
+            'text',
+            [
+                'name' => 'companyname',
+                'label' => __('Company Name'),
+                'id' => 'companyname',
+                'title' => __('Company Name'),
+                'class' => 'required-entry',
+                'required' => true,
+            ]
+        );
+
+        $fieldset->addField(
             'email',
             'text',
             [
@@ -142,15 +155,42 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         );
 
         $fieldset->addField(
-            'approx_qty',
+            'city',
             'text',
             [
-                'name' => 'approx_qty',
-                'label' => __('Approx Qty'),
-                'id' => 'approx_qty',
-                'title' => __('Approx Qty'),
+                'name' => 'city',
+                'label' => __('City'),
+                'id' => 'city',
+                'title' => __('City'),
                 'class' => 'required-entry',
                 'required' => true,
+            ]
+        );
+
+        $fieldset->addField(
+            'state',
+            'select',
+            [
+                'name' => 'state',
+                'label' => __('State'),
+                'id' => 'state',
+                'title' => __('State'),
+                'values' => $this->_helper->toOptionStateArray(),
+                'class' => 'state',
+                'required' => true,
+            ]
+        );
+
+        $fieldset->addField(
+            'state',
+            'checkbox',
+            [
+                'name' => 'state',
+                'label' => __('State'),
+                'data-form-part' => $this->_helper->toOptionCtypeArray(),
+                'class' => 'state',
+                'onchange'   => 'this.value = this.checked ? 1 : 0;',
+                'checked' => true //add this line in your each fieldset.
             ]
         );
 
@@ -164,20 +204,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
                 'title' => __('Category'),
                 'values' => $this->_helper->getCategoryCollectionArr(),
                 'class' => 'category',
-                'required' => true,
-            ]
-        );
-
-        $fieldset->addField(
-            'city',
-            'select',
-            [
-                'name' => 'city',
-                'label' => __('City'),
-                'id' => 'city',
-                'title' => __('City'),
-                'values' => $this->_helper->toOptionCityData(),
-                'class' => 'city',
                 'required' => true,
             ]
         );
