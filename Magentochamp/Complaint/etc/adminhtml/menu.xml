@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magentochamp_Complaint Menu
+ *
+ * @package     Magentochamp_Complaint
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magentochamp_Complaint::manager" title="Complaint" module="Magentochamp_Complaint" sortOrder="10" resource="Magentochamp_Complaint::manager"/>
+        <add id="Magentochamp_Complaint::add_row" title="Complaint" module="Magentochamp_Complaint" sortOrder="20" parent="Magentochamp_Complaint::manager" action="complaint/grid" resource="Magentochamp_Complaint::add_row"/>
+    </menu>
+</config>

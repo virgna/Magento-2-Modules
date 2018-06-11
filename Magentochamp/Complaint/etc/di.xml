@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magentochamp\Complaint\Api\Data\GridInterface" type="Magentochamp\Complaint\Model\Complaint" />
+ 
+    <virtualType name="Magentochamp\Complaint\Model\ResourceModel\Complaint\Complaint\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magentochamp_complaint</argument>
+            <argument name="resourceModel" xsi:type="string">Magentochamp\Complaint\Model\ResourceModel\Complaint</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="complaint_record_grid_list_data_source" xsi:type="string">Magentochamp\Complaint\Model\ResourceModel\Complaint\Complaint\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

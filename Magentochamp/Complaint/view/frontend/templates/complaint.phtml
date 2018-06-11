@@ -1,0 +1,96 @@
+<form class="form complaint"
+      action="<?php echo $block->getFormAction() ?>"
+      id="complaint"
+      method="post"
+      enctype="multipart/form-data"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Complaint')) ?></span></legend><br />
+        
+        <div class="field name required">
+            <label class="label" for="name"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
+            <div class="control">
+                <input name="name" id="name" title="<?= $block->escapeHtmlAttr(__('Name')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+            </div>
+        </div>
+        <div class="field email required">
+            <label class="label" for="email"><span><?= $block->escapeHtml(__('Email')) ?></span></label>
+            <div class="control">
+                <input name="email" id="email" title="<?= $block->escapeHtmlAttr(__('Email')) ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <div class="field mobno required">
+            <label class="label" for="mobno"><span><?= $block->escapeHtml(__('Phone Number')) ?></span></label>
+            <div class="control">
+                <input name="mobno" id="mobno" title="<?= $block->escapeHtmlAttr(__('Phone Number')) ?>" class="input-text" type="text" data-validate="{required:true}" />
+            </div>
+        </div>
+        <div class="field reason required">
+            <label for="reason"
+                   class="label"><span><?= $block->escapeHtml(__('Reason')) ?></span></label>
+            <select name="reason" id="reason" class="admin__control-select required-entry">
+                <option value="">-Reason-</option>
+                <?php foreach($block->toOptionReasonData() as $key=>$value){ ?>
+                    <option value="<?php echo $key ?>"><?php echo $value ?></option>
+                <?php }?>
+            </select>
+        </div>
+        <div class="field uploadfile required">
+            <input name="uploadfile" id="uploadfile " title="<?php echo __('Upload File') ?>" type="file" />
+        </div>
+        <div class="field comments required">
+            <label class="label" for="comments"><span><?= $block->escapeHtml(__('Comments')) ?></span></label>
+            <div class="control">
+                <textarea name="comments" id="comments" class="" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+    <input name="status" type="hidden" value="1">
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+<div class="unresolvecomplaint">
+    <form class="form unresolvecomplaint"
+          action="<?php echo $block->getUnresolvedFormAction() ?>"
+          id="unresolvecomplaint"
+          method="post"
+          enctype="multipart/form-data"
+          data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+          data-mage-init='{"validation":{}}'>
+        <fieldset class="fieldset">
+            <legend class="legend"><span><?= $block->escapeHtml(__('Unresolved Complaint')) ?></span></legend><br />
+            
+            <div class="field orderid required">
+                <label class="label" for="orderid"><span><?= $block->escapeHtml(__('Order Id')) ?></span></label>
+                <div class="control">
+                    <input name="orderid" id="orderid" title="<?= $block->escapeHtmlAttr(__('Order Id')) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+                </div>
+            </div>
+            <div class="field uploadfile required">
+                <input name="uploadfile" id="uploadfile " title="<?php echo __('Upload File') ?>" type="file" />
+            </div>
+            <div class="field comments required">
+                <label class="label" for="comments"><span><?= $block->escapeHtml(__('Comments')) ?></span></label>
+                <div class="control">
+                    <textarea name="comments" id="comments" class="" data-validate="{required:true}"></textarea>
+                </div>
+            </div>
+        <input name="status" type="hidden" value="1">
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                    <span><?= $block->escapeHtml(__('Submit')) ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
