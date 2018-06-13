@@ -8,10 +8,17 @@
             <argument name="resourceModel" xsi:type="string">Magentochamp\Complaint\Model\ResourceModel\Complaint</argument>
         </arguments>
     </virtualType>
+    <virtualType name="Magentochamp\Complaint\Model\ResourceModel\Unresolved\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magentochamp_ordercomplaint</argument>
+            <argument name="resourceModel" xsi:type="string">Magentochamp\Complaint\Model\ResourceModel\Unresolved</argument>
+        </arguments>
+    </virtualType>
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
                 <item name="complaint_record_grid_list_data_source" xsi:type="string">Magentochamp\Complaint\Model\ResourceModel\Complaint\Complaint\Collection</item>
+                <item name="unresolved_record_grid_list_data_source" xsi:type="string">Magentochamp\Complaint\Model\ResourceModel\Unresolved\Collection</item>
             </argument>
         </arguments>
     </type>

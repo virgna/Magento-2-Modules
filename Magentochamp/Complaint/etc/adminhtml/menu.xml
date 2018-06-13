@@ -11,5 +11,7 @@
     <menu>
         <add id="Magentochamp_Complaint::manager" title="Complaint" module="Magentochamp_Complaint" sortOrder="10" resource="Magentochamp_Complaint::manager"/>
         <add id="Magentochamp_Complaint::add_row" title="Complaint" module="Magentochamp_Complaint" sortOrder="20" parent="Magentochamp_Complaint::manager" action="complaint/grid" resource="Magentochamp_Complaint::add_row"/>
+
+        <add id="Magentochamp_Complaint::add_row_unres" title="Unresolved Complaint" module="Magentochamp_Complaint" sortOrder="20" parent="Magentochamp_Complaint::manager" action="complaint/grid/unresolved" resource="Magentochamp_Complaint::add_row_unres"/>
     </menu>
 </config>

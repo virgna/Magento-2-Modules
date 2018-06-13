@@ -47,29 +47,24 @@ class Post extends \Magento\Framework\App\Action\Action
 
         $destinationPath = $this->getDestinationPath();
 
-        try {
-            $uploader = $this->uploaderFactory->create(['fileId' => $this->fileId])
-                ->setAllowCreateFolders(true)
-                ->setAllowedExtensions($this->allowedExtensions)
-                ->addValidateCallback('validate', $this, 'validateFile');
-            if (!$uploader->save($destinationPath)) {
-                throw new LocalizedException(
-                    __('File cannot be saved to path: $1', $destinationPath)
-                );
-            }
-
-            // @todo
-            // process the uploaded file
-        } catch (\Exception $e) {
-            $this->messageManager->addError(
-                __($e->getMessage())
-            );
+        if(!empty($_FILES)){
+            $filename =  $_FILES[$this->fileId]['name'];
         }
-        
-        $newData = array('name'=>$data['name'],'email'=>$data['email'],'mobno'=>$data['mobno'],'reason'=>$data['reason'],'uploadfile'=>$data['uploadfile'],'comments'=>$data['comments'],'created_at'=>$this->datetime->gmtDate(),'updated_at'=>$this->datetime->gmtDate(),'status'=>1);
+        $newData = array('name'=>$data['name'],'email'=>$data['email'],'mobno'=>$data['mobno'],'reason'=>$data['reason'],'uploadfile'=>$filename,'comments'=>$data['comments'],'created_at'=>$this->datetime->gmtDate(),'updated_at'=>$this->datetime->gmtDate(),'status'=>1);
         
         $model->setData($newData);
         try{
+            if($filename){
+                $uploader = $this->uploaderFactory->create(['fileId' => $this->fileId])
+                    ->setAllowCreateFolders(true)
+                    ->setAllowedExtensions($this->allowedExtensions)
+                    ->addValidateCallback('validate', $this, 'validateFile');
+                if (!$uploader->save($destinationPath)) {
+                    throw new LocalizedException(
+                        __('File cannot be saved to path: $1', $destinationPath)
+                    );
+                }
+            }
             $model->save();
             $this->messageManager->addSuccessMessage('Complaint has been submitted successfully');
         } catch (LocalizedException $e) {

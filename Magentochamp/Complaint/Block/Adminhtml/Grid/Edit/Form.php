@@ -141,46 +141,6 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
             ]
         );
 
-        $fieldset->addField(
-            'approx_qty',
-            'text',
-            [
-                'name' => 'approx_qty',
-                'label' => __('Approx Qty'),
-                'id' => 'approx_qty',
-                'title' => __('Approx Qty'),
-                'class' => 'required-entry',
-                'required' => true,
-            ]
-        );
-
-        $fieldset->addField(
-            'category',
-            'select',
-            [
-                'name' => 'category',
-                'label' => __('Category'),
-                'id' => 'category',
-                'title' => __('Category'),
-                'values' => $this->_helper->getCategoryCollectionArr(),
-                'class' => 'category',
-                'required' => true,
-            ]
-        );
-
-        $fieldset->addField(
-            'city',
-            'select',
-            [
-                'name' => 'city',
-                'label' => __('City'),
-                'id' => 'city',
-                'title' => __('City'),
-                'values' => $this->_helper->toOptionCityData(),
-                'class' => 'city',
-                'required' => true,
-            ]
-        );
 
         $fieldset->addField(
             'status',

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Ui/etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">unresolved_record_grid_list.unresolved_record_grid_list_data_source</item>
+            <item name="deps" xsi:type="string">unresolved_record_grid_list.unresolved_record_grid_list_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">grid_records_columns</item>
+    </argument>
+    <dataSource name="unresolved_record_grid_list_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider</argument>
+            <argument name="name" xsi:type="string">unresolved_record_grid_list_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                <item name="storageConfig" xsi:type="array">
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </item>
+        </argument>
+    </dataSource>
+    <container name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="template" xsi:type="string">ui/grid/toolbar</item>
+                <item name="stickyTmpl" xsi:type="string">ui/grid/sticky/toolbar</item>
+            </item>
+        </argument>
+        <bookmark name="bookmarks"/>
+        <columnsControls name="columns_controls"/>
+        
+        <filters name="listing_filters">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">unresolved_record_grid_list.unresolved_record_grid_list.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.filters</item>
+                        <item name="indexField" xsi:type="string">id</item>
+                    </item>
+                    <item name="childDefaults" xsi:type="array">
+                        <item name="provider" xsi:type="string">unresolved_record_grid_list.unresolved_record_grid_list.listing_top.listing_filters</item>
+                        <item name="imports" xsi:type="array">
+                            <item name="visible" xsi:type="string">unresolved_record_grid_list.unresolved_record_grid_list.listing_top.bookmarks:current.columns.${ $.index }.visible</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+            <!-- Department ID Filter -->
+        </filters>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="selectProvider" xsi:type="string">unresolved_record_grid_list.unresolved_record_grid_list.grid_records_columns.ids</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/tree-massactions</item>
+                    <item name="indexField" xsi:type="string">id</item>
+                </item>
+            </argument>
+            <!-- Mass actions which you want to add in your grid-->
+            <action name="delete">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">delete</item>
+                        <item name="label" xsi:type="string" translate="true">Delete</item>
+                        <item name="url" xsi:type="url" path="complaint/grid/massdelete"/>
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Delete</item>
+                            <item name="message" xsi:type="string" translate="true">Do you want to delete selected row record?</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+        <paging name="listing_paging">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="provider" xsi:type="string">unresolved_record_grid_list.unresolved_record_grid_list.listing_top.bookmarks</item>
+                        <item name="namespace" xsi:type="string">current.paging</item>
+                    </item>
+                    <item name="selectProvider" xsi:type="string">unresolved_record_grid_list.unresolved_record_grid_list.grid_records_columns.ids</item>
+                </item>
+            </argument>
+        </paging>
+    </container>
+    <columns name="grid_records_columns">
+        <selectionsColumn name="ids">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <item name="indexField" xsi:type="string">id</item>
+                   <item name="sorting" xsi:type="string">desc</item>
+                   <item name="sortOrder" xsi:type="number">0</item>
+               </item>
+           </argument>
+       </selectionsColumn>
+       <column name="orderid" sortOrder="0">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <item name="filter" xsi:type="string">text</item>
+                   <item name="label" xsi:type="string" translate="true">OrderId</item>
+               </item>
+           </argument>
+       </column>
+       
+       <column name="created_at" sortOrder="50">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <!-- <item name="filter" xsi:type="string">textRange</item> -->
+                   <item name="label" xsi:type="string" translate="true">Created At</item>
+               </item>
+           </argument>
+       </column>
+        <!-- Add Action with each row of grid and for this we will create a class Action -->
+       <actionsColumn name="actions" class="Magentochamp\Complaint\Ui\Component\Listing\Grid\Column\Action" sortOrder="100">
+           <argument name="data" xsi:type="array">
+               <item name="config" xsi:type="array">
+                   <!-- <item name="resizeEnabled" xsi:type="boolean">false</item> -->
+                   <!-- <item name="resizeDefaultWidth" xsi:type="string">107</item> -->
+                   <item name="indexField" xsi:type="string">id</item>
+               </item>
+           </argument>
+       </actionsColumn>
+    </columns>
+</listing>
