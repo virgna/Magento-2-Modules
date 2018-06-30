@@ -32,7 +32,7 @@ class InstallSchema implements InstallSchemaInterface
                 ->addColumn(
                     'file',
                     Table::TYPE_TEXT,
-                    255,
+                    '16M',
                     [],
                     'File'
                 )
