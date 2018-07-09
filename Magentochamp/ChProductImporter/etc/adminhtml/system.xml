@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="magentochamp" translate="label" sortOrder="10">
+            <label>CH Product Importer</label>
+        </tab>
+        <section id="chproductimporter" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Configuration</label>
+            <tab>magentochamp</tab>
+            <resource>Magentochamp_ChProductImporter::chproductimporter_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="active" translate="label" sortOrder="1" type="select" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="feedurl" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Feed Url</label>
+                </field>
+                <field id="imagescount" translate="label" type="text" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Additional Images Count</label>
+                </field>
+            </group>
+            <group id="cron" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Cron Settings</label>
+                <field id="frequency" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Import Frequency</label>
+                    <source_model>Magentochamp\ChProductImporter\Model\Config\Source\Frequency</source_model>
+                </field>
+                <field id="customfrequency" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Custom Frequency</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

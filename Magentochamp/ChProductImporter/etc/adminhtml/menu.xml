@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magentochamp_ChProductImporter Menu
+ *
+ * @package     Magentochamp_ChProductImporter
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Magentochamp_ChProductImporter::manager" title="CH Product Importer" module="Magentochamp_ChProductImporter" sortOrder="10" resource="Magentochamp_ChProductImporter::manager"/>
+        <add id="Magentochamp_ChProductImporter::add_row" title="CH Product Importer" module="Magentochamp_ChProductImporter" sortOrder="20" parent="Magentochamp_ChProductImporter::manager" action="chproductimporter/grid" resource="Magentochamp_ChProductImporter::add_row"/>
+    </menu>
+</config>
