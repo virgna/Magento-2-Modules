@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="MageMeister\EggEaster\Api\Data\GridInterface" type="MageMeister\EggEaster\Model\EggEaster" />
+ 
+    <virtualType name="MageMeister\EggEaster\Model\ResourceModel\EggEaster\EggEaster\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magemeister_eggeaster</argument>
+            <argument name="resourceModel" xsi:type="string">MageMeister\EggEaster\Model\ResourceModel\EggEaster</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="eggeaster_record_grid_list_data_source" xsi:type="string">MageMeister\EggEaster\Model\ResourceModel\EggEaster\EggEaster\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

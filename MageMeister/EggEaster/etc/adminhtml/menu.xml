@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MageMeister_EggEaster Menu
+ *
+ * @package     MageMeister_EggEaster
+ *
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="MageMeister_EggEaster::manager" title="EggEaster" module="MageMeister_EggEaster" sortOrder="10" resource="MageMeister_EggEaster::manager"/>
+        <add id="MageMeister_EggEaster::add_row" title="EggEaster" module="MageMeister_EggEaster" sortOrder="20" parent="MageMeister_EggEaster::manager" action="eggeaster/grid" resource="MageMeister_EggEaster::add_row"/>
+    </menu>
+</config>
