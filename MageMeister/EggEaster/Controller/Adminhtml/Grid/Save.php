@@ -42,6 +42,12 @@ class Save extends \Magento\Backend\App\Action
     /**
      * @param \Magento\Backend\App\Action\Context $context
      * @param \MageMeister\EggEaster\Model\EggEasterFactory $eggeasterFactory
+     * @param Filesystem $fileSystem
+     * @param UploaderFactory $uploaderFactory
+     * @param VariableFactory $varFactory
+     * @param \Magento\Framework\Stdlib\DateTime\DateTime $datetime
+     * @param \MageMeister\EggEaster\Helper\Data $helperData
+     * @param \Magento\Store\Model\StoreManagerInterface $storeManager
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,

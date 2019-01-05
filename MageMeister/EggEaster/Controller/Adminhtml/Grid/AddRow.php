@@ -77,6 +77,9 @@ class AddRow extends \Magento\Backend\App\Action
        return $resultPage;
     }
  
+    /**
+     * @return boolean
+     */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('MageMeister_EggEaster::add_row');

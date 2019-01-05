@@ -29,13 +29,6 @@ class Collection extends AbstractCollection
     /**
      * Define model & resource model
      */
-    /*protected function _construct()
-    {
-        $this->_init(
-            'MageMeister\EggEaster\Model',
-            'MageMeister\EggEaster\Model\ResourceModel\Model'
-        );
-    }*/
     protected function _construct()
     {
         $this->_init(

@@ -29,15 +29,23 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     protected $_resource;
     
+    /** 
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param array $data
+     */
     public function __construct(
     	\Magento\Framework\App\Helper\Context $context,
         array $data = []
     	)
     {
         parent::__construct($context, $data);
-        //parent::__construct($context);
     }
 
+    /**
+     * Return last increment Id
+     *
+     * @return int
+     */
     public function getLastIncrementId()
     {
         $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of object manager

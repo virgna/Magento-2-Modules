@@ -31,12 +31,18 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
      */
     protected $_systemStore;
 
+    /**
+     * @var \MageMeister\EggEaster\Helper\Data
+     */
     protected $_helper;
  
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Registry             $registry
      * @param \Magento\Framework\Data\FormFactory     $formFactory
+     * @param \Magento\Cms\Model\Wysiwyg\Config       $wysiwygConfig
+     * @param \MageMeister\EggEaster\Model\Status     $otions
+     * @param \MageMeister\EggEaster\Helper\Data      $helper
      * @param array                                   $data
      */
     public function __construct(
@@ -44,7 +50,7 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
         \Magento\Cms\Model\Wysiwyg\Config $wysiwygConfig,
-        \MageMeister\EggEaster\Model\Status $options,
+        \MageMeister\EggEaster\Model\Status $otions,
         \MageMeister\EggEaster\Helper\Data $helper,
         array $data = []
     ) 

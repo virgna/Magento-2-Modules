@@ -48,26 +48,6 @@ class Index extends \Magento\Framework\App\Action\Action
 
     public function execute()
     {
-
-        /*if (!$this->session->isLoggedIn()) {
-            //$url = $this->_redirect->getRefererUrl();
-            $url = $this->urlInterface->getCurrentUrl();
-
-        // Or get any custom url
-        //$url = $this->urlInterface->getUrl('my/custom/url');
-
-        // Create login URL
-        $login_url = $this->urlInterface
-                          ->getUrl('customer/account/login', 
-                                array('referer' => base64_encode($url))
-                            );
-
-        // Redirect to login URL
-        $resultRedirect = $this->resultRedirectFactory->create();
-        $resultRedirect->setUrl($login_url);
-        return $resultRedirect;
-        }*/
-
         // 1. POST request : Get booking data
         $post = (array) $this->getRequest()->getPost();
 

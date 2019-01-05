@@ -46,6 +46,10 @@ class Status implements OptionSourceInterface
         return $res;
     }
 
+    /**
+     * Get Grid row type array for option element.
+     * @return array
+     */
     public function getReviewStatusesOptionArray()
     {
         $result = [];

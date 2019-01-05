@@ -30,6 +30,7 @@ class Action extends Column
 {
     /** Url path */
     const ROW_EDIT_URL = 'eggeaster/grid/addrow';
+    
     /** @var UrlInterface */
     protected $_urlBuilder;
  
