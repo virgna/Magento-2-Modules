@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<virtualType name="Magento\ConfigurableProduct\Ui\DataProvider\Product\Form\Modifier\ConfigurablePanel" type="WebVision\AdvanceConfigurable\Ui\DataProvider\Product\Form\Modifier\ConfigurablePanel">
+	    <arguments>
+	        <argument name="formName" xsi:type="string">product_form</argument>
+            <argument name="dataScopeName" xsi:type="string">product_form.product_form</argument>
+            <argument name="dataSourceName" xsi:type="string">product_form.product_form_data_source</argument>
+	    </arguments>
+	</virtualType>
+</config>

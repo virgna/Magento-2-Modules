@@ -1,0 +1,47 @@
+<!-- <script type="text/javascript">
+require(['jquery'], function($){
+	
+		console.log("Your are a - ");
+		$("input[name='defaultprod']").on('click', function(e) {
+		console.log("called");
+		var radioValue = $(e).val();
+		console.log("Your are a - " + radioValue);
+		if(radioValue){
+		    alert("Your are a - " + radioValue);
+		}
+        });
+    });
+
+</script> -->
+<script type="text/javascript">
+require([ 'jquery', 'jquery/ui'], function($){
+console.log($('body').find("input[name='product[dap]']").val()+'---');
+	setTimeout(function(){
+		var value = $("input[name='product[dap]']").val();
+		console.log(value);
+		$("input:radio[name=defaultprod][value="+"'"+value+"'"+"]").attr('checked', true);
+	 },7000);
+
+});
+/*require([
+	'jquery',
+	'WebVision_AdvanceConfigurable/js/customscript'
+], function($, customscriptjs) {
+	console.log('sdfsdfs');
+});*/
+</script>
+<script>// <![CDATA[
+        require([
+            'jquery'
+        ], function ($) {
+        	$(function() {
+	            $(document).on("change","input[name='defaultprod']",function(e) {
+	            	if($(this).val()){
+        				$("input[name='product[dap]']").val($(this).val()).trigger('change');
+	            	}
+			    });
+			});
+        });
+        	
+        // ]]>
+</script>
