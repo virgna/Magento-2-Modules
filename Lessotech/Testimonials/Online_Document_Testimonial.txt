@@ -1,0 +1,16 @@
+# Magento 2 Testimonial Free Extension
+
+- [Installation guide]
+
+1. extract the package and connect to your server using SFTP Clients above. Then upload files, folders to your server.Upload the app folder to Magento 2 root folder.
+
+2.To complete the installation process, we need to run the following command lines:
+
+php bin/magento setup:upgrade
+php bin/magento setup:static-content:deploy
+
+
+3.check form with http://yourstoreurl/testimonials. you can put this link anywhere you need in fotter etc.
+
+4. check Admin for list that we will get from  front.
+

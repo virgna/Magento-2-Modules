@@ -1,0 +1,19 @@
+<!--@subject {{trans "Feedback for order #%orderid" orderid=$data.orderid}} @-->
+<!--@vars {
+"var data.comment":"Feedback",
+"var data.email":"Sender Email",
+"var data.name":"Sender Name"
+} @-->
+
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">Hello {{trans "%name" name=$data.name}},</p>
+<p>
+    {{trans "Thank you for your order #%orderid." orderid=$data.orderid |raw}}
+    {{trans
+        'In order to serve you better please provide your feedback. <a href=%reviewurl>Click Here</a> to place your feedback.'
+
+        reviewurl=$data.reviewurl
+    |raw}}
+</p>
+{{template config_path="design/email/footer_template"}}

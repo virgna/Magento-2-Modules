@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Lessotech
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the lessotech.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.lessotech.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Lessotech
+ * @package     Lessotech_Testimonials
+ * @copyright   Copyright (c) Lessotech (http://www.lessotech.com/)
+ * @license     http://www.lessotech.com/LICENSE.txt
+ */
+ -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<referenceContainer name="content">
+    	<block class="Lessotech\Testimonials\Block\Testimonials" name="testimonialsform" template="Lessotech_Testimonials::testimonials.phtml">
+    		<container name="form.additional.info" label="Form Additional Info">
+                <block class="Magento\Captcha\Block\Captcha" name="captcha" after="-" cacheable="false">
+                    <action method="setFormId">
+                        <argument name="formId" xsi:type="string">testimonials</argument>
+                    </action>
+                    <action method="setImgWidth">
+                        <argument name="width" xsi:type="string">230</argument>
+                    </action>
+                    <action method="setImgHeight">
+                        <argument name="width" xsi:type="string">50</argument>
+                    </action>
+                </block>
+            </container>
+        </block>
+    </referenceContainer>
+    <referenceBlock name="head.components">
+        <block class="Magento\Framework\View\Element\Js\Components" name="captcha_page_head_components" template="Magento_Captcha::js/components.phtml"/>
+    </referenceBlock>
+</page>
+

@@ -1,0 +1,62 @@
+<!--
+/**
+ * Lessotech
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the lessotech.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.lessotech.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Lessotech
+ * @package     Lessotech_Testimonials
+ * @copyright   Copyright (c) Lessotech (http://www.lessotech.com/)
+ * @license     http://www.lessotech.com/LICENSE.txt
+ */
+ -->
+<?php
+/** @var \Magento\Review\Block\Adminhtml\Rating\Detailed $block */
+
+?>
+<?php if (!empty($block->getRating())) : ?>
+    <?php foreach ($block->getRating() as $_rating) : ?>
+    <div class="admin__field admin__field-rating">
+        <label class="admin__field-label"><span><?= $block->escapeHtml(ucwords(str_replace('_', ' ', $_rating['rating_code']))) ?></span></label>
+        <?php $_iterator = 1; ?>
+        <?php
+            $ratingCode = $_rating['rating_code'];
+            $ratingId = $_rating['rating_id'];
+            $ratingVal = $_rating['value'];
+        ?>
+        <div class="admin__field-control" data-widget="ratingControl">
+            <?php for ($i=5; $i>=1; $i--) { ?>
+            <input type="radio" name="ratings[<?= $block->escapeHtmlAttr($ratingId) ?>]" id="<?= $block->escapeHtmlAttr($ratingCode) ?>_<?= $block->escapeHtmlAttr($i) ?>" value="<?= $block->escapeHtmlAttr($i) ?>" <?php if ($i == $ratingVal) :
+?>checked="checked"<?php
+                                              endif; ?> />
+            <label for="<?= $block->escapeHtmlAttr($ratingCode) ?>_<?= $block->escapeHtmlAttr(5) ?>">&#9733;</label>
+        <?php $_iterator++ ?>
+            <?php } ?>
+        </div>
+    </div>
+    
+    <?php endforeach; ?>
+    <input type="hidden" name="validate_rating" class="validate-rating" value="" />
+<script>
+require([
+    "jquery",
+    "mage/mage",
+    "Magento_Review/js/rating"
+], function($){
+    "use strict";
+
+    $('[data-widget=ratingControl]').ratingControl();
+});
+</script>
+<?php else : ?>
+    <?= $block->escapeHtml(__("Rating isn't Available")) ?>
+<?php endif; ?>

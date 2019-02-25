@@ -1,0 +1,24 @@
+<?php echo get_class($block).$block->getPostAction().'----------'; ?>
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /* @var $block \Magento\ProductAlert\Block\Product\View */?>
+<form id="form-validate-stock" method="post" action="<?php echo get_class($block).$block->getPostAction() ?>" novalidate="novalidate">
+    <label for="notification-container-1215">Sign up for out of stock notification</label>
+    <div class="notification-container" id="notification-container-1215">
+        <div class="input-fields fieldset">
+            <input type="email" data-validate="{required:true, 'validate-email':true}" name="guest_email_price" id="amxnotif-guest-email_price-1215" class="input-text amxnotif-guest-email" size="30">
+            <input type="hidden" name="product_id" value="1215">
+        </div>
+        <div class="actions-toolbar amxnotif_guest_action">
+            <div class="primary">
+                <button type="submit" class="action submit primary">
+                    <span>Subscribe</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

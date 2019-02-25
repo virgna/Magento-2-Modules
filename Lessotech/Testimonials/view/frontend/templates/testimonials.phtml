@@ -1,0 +1,171 @@
+<!--
+/**
+ * Lessotech
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the lessotech.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.lessotech.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Lessotech
+ * @package     Lessotech_Testimonials
+ * @copyright   Copyright (c) Lessotech (http://www.lessotech.com/)
+ * @license     http://www.lessotech.com/LICENSE.txt
+ */
+ -->
+<?php
+$orderid = $block->getRequest()->getParam('id');
+$customerCity = '';
+$customerName = '';
+if ($orderid) {
+    $getOrder = $block->getOrder($orderid);
+    $customerCity = $getOrder->getShippingAddress()->getData("city");
+    $customerName = $getOrder->getCustomerName();
+}
+?>
+<form class="form testimonials-form"
+      action="<?= $block->escapeUrl($block->getFormAction()) ?>"
+      id="testimonials-form"
+      method="post"
+      enctype="multipart/form-data"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      data-mage-init='{"validation":{}}'>
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtml(__('Testimonial')) ?></span></legend><br />
+        <div class="field customername required">
+            <label class="label" for="customername"><span><?= $block->escapeHtml(__('Customer Name')) ?></span></label>
+            <div class="control">
+                <input name="customername" value="<?php echo $customerName; ?>" id="customername" title="<?= $block->escapeHtmlAttr(__('Customer Name')) ?>" class="input-text" type="text" data-validate="{required:true}" <?php if ($customerName) { echo 'readonly="readonly"';} ?>/>
+            </div>
+        </div>
+        <div class="field city required">
+            <label class="label" for="city"><span><?= $block->escapeHtml(__('City')) ?></span></label>
+            <div class="control">
+                <input name="city" value="<?php echo $customerCity; ?>" id="city" title="<?= $block->escapeHtmlAttr(__('City')) ?>" class="input-text" type="text" data-validate="{required:true}" <?php if($customerCity){ echo 'readonly="readonly"';} ?>/>
+            </div>
+        </div>
+
+        <div class="field design_experience required">
+            <label class="label" for="name"><span><?= $block->escapeHtml(__('Design Experience')) ?></span></label>
+            <div class="control">
+                <div class="control review-control-vote">
+                    <input type="radio" name="ratings[1]" id="Design_experience_1" value="1" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Design_experience_rating_label Design_experience_1_label" aria-required="true">
+                        <label class="rating-1" for="Design_experience_1" title="1 star" id="Design_experience_1_label">
+                            <span>1 star</span>
+                        </label>
+                    <input type="radio" name="ratings[1]" id="Design_experience_2" value="2" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Design_experience_rating_label Design_experience_2_label" aria-required="true">
+                        <label class="rating-2" for="Design_experience_2" title="2 stars" id="Design_experience_2_label">
+                            <span>2 stars</span>
+                        </label>
+                    <input type="radio" name="ratings[1]" id="Design_experience_3" value="3" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Design_experience_rating_label Design_experience_3_label" aria-required="true">
+                        <label class="rating-3" for="Design_experience_3" title="3 stars" id="Design_experience_3_label">
+                            <span>3 stars</span>
+                        </label>
+                    <input type="radio" name="ratings[1]" id="Design_experience_4" value="4" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Design_experience_rating_label Design_experience_4_label" aria-required="true">
+                        <label class="rating-4" for="Design_experience_4" title="4 stars" id="Design_experience_4_label">
+                            <span>4 stars</span>
+                        </label>
+                    <input type="radio" name="ratings[1]" id="Design_experience_5" value="5" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Design_experience_rating_label Design_experience_5_label" aria-required="true">
+                        <label class="rating-5" for="Design_experience_5" title="5 stars" id="Design_experience_5_label">
+                            <span>5 stars</span>
+                        </label>
+                </div>
+            </div>
+        </div>
+        <div class="field delivery_process required">
+            <label class="label" for="delivery_process"><span><?= $block->escapeHtml(__('Deivery Process')) ?></span></label>
+            <div class="control">
+                <div class="control review-control-vote">
+                    <input type="radio" name="ratings[2]" id="Delivery_process_1" value="1" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Delivery_process_rating_label Delivery_process_1_label" aria-required="true">
+                        <label class="rating-1" for="Delivery_process_1" title="1 star" id="Delivery_process_1_label">
+                            <span>1 star</span>
+                        </label>
+                    <input type="radio" name="ratings[2]" id="Delivery_process_2" value="2" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Delivery_process_rating_label Delivery_process_2_label" aria-required="true">
+                        <label class="rating-2" for="Delivery_process_2" title="2 stars" id="Delivery_process_2_label">
+                            <span>2 stars</span>
+                        </label>
+                    <input type="radio" name="ratings[2]" id="Delivery_process_3" value="3" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Delivery_process_rating_label Delivery_process_3_label" aria-required="true">
+                        <label class="rating-3" for="Delivery_process_3" title="3 stars" id="Delivery_process_3_label">
+                            <span>3 stars</span>
+                        </label>
+                    <input type="radio" name="ratings[2]" id="Delivery_process_4" value="4" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Delivery_process_rating_label Delivery_process_4_label" aria-required="true">
+                        <label class="rating-4" for="Delivery_process_4" title="4 stars" id="Delivery_process_4_label">
+                            <span>4 stars</span>
+                        </label>
+                    <input type="radio" name="ratings[2]" id="Delivery_process_5" value="5" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Delivery_process_rating_label Delivery_process_5_label" aria-required="true">
+                        <label class="rating-5" for="Delivery_process_5" title="5 stars" id="Delivery_process_5_label">
+                            <span>5 stars</span>
+                        </label>
+                </div>
+            </div>
+        </div>
+        <div class="field quality required">
+            <label class="label" for="quality"><span><?= $block->escapeHtml(__('Quality')) ?></span></label>
+            <div class="control">
+                <div class="control review-control-vote">
+                    <input type="radio" name="ratings[3]" id="Quality_1" value="1" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_1_label" aria-required="true">
+                        <label class="rating-1" for="Quality_1" title="1 star" id="Quality_1_label">
+                            <span>1 star</span>
+                        </label>
+                    <input type="radio" name="ratings[3]" id="Quality_2" value="2" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_2_label" aria-required="true">
+                        <label class="rating-2" for="Quality_2" title="2 stars" id="Quality_2_label">
+                            <span>2 stars</span>
+                        </label>
+                    <input type="radio" name="ratings[3]" id="Quality_3" value="3" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_3_label" aria-required="true">
+                        <label class="rating-3" for="Quality_3" title="3 stars" id="Quality_3_label">
+                            <span>3 stars</span>
+                        </label>
+                    <input type="radio" name="ratings[3]" id="Quality_4" value="4" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_4_label" aria-required="true">
+                        <label class="rating-4" for="Quality_4" title="4 stars" id="Quality_4_label">
+                            <span>4 stars</span>
+                        </label>
+                    <input type="radio" name="ratings[3]" id="Quality_5" value="5" class="radio" data-validate="{ 'rating-required':true}" aria-labelledby="Quality_rating_label Quality_5_label" aria-required="true">
+                        <label class="rating-5" for="Quality_5" title="5 stars" id="Quality_5_label">
+                            <span>5 stars</span>
+                        </label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field comments required">
+            <label class="label" for="comments"><span><?= $block->escapeHtml(__('Comments')) ?></span></label>
+            <div class="control">
+                <textarea name="comments" id="comments" class="" data-validate="{required:true}"></textarea>
+            </div>
+        </div>
+        <div class="field review-field-media">
+            <label class="label"><span><?php echo __('Photos') ?></span></label>
+            <div class="control">
+                <input type="file" name="photos" id="photos" accept="image/*" />
+
+            </div>
+        </div>
+    <input name="status" type="hidden" value="1">
+    <?php echo $block->getChildHtml('form.additional.info'); ?>
+    </fieldset>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="orderid" id="orderid" value="<?php echo $orderid; ?>"  />
+            <button type="submit" title="<?= $block->escapeHtmlAttr(__('Submit')) ?>" class="action submit primary">
+                <span><?= $block->escapeHtml(__('Submit')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+<script type="text/x-magento-init">
+{
+    "#testimonials-form": {
+        "Lessotech_Testimonials/js/error-placement": {},
+        "Lessotech_Testimonials/js/validate-ratings": {}
+    }
+}
+</script>

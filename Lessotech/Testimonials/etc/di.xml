@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Lessotech
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the lessotech.com license that is
+ * available through the world-wide-web at this URL:
+ * https://www.lessotech.com/LICENSE.txt
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category    Lessotech
+ * @package     Lessotech_Testimonials
+ * @copyright   Copyright (c) Lessotech (http://www.lessotech.com/)
+ * @license     http://www.lessotech.com/LICENSE.txt
+ */
+ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Lessotech\Testimonials\Api\Data\GridInterface" type="Lessotech\Testimonials\Model\Testimonials" />
+ 
+    <virtualType name="Lessotech\Testimonials\Model\ResourceModel\Testimonials\Testimonials\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">lessotech_testimonials</argument>
+            <argument name="resourceModel" xsi:type="string">Lessotech\Testimonials\Model\ResourceModel\Testimonials</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="testimonials_record_grid_list_data_source" xsi:type="string">Lessotech\Testimonials\Model\ResourceModel\Testimonials\Testimonials\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
